@@ -5,6 +5,14 @@ It demonstrates clean software architecture using **functional modules**, **clas
 
 ---
 
+# 📁 Submission Instruction
+All project deliverables — including the project description file, the pre-presentation slides, the final presentation slides, and the demo video — are stored inside the docs/ directory.
+```
+project/docs
+```
+
+---
+
 # 📁 Project Structure
 
 ```
