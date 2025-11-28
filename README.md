@@ -5,7 +5,7 @@ It demonstrates clean software architecture, object-oriented programming, testin
 
 ---
 
-# 📁 Submission Notes (DATA 533 – Step 1 & Step 2)
+# 📁 Submission Notes (DATA 533 – Step 1)
 
 All deliverables such as project description, pre-presentation slides, final presentation slides, and demo video are stored in:
 
