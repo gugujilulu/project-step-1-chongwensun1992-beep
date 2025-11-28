@@ -2,12 +2,14 @@
 Record-related controller functions for SmartBudget.
 Handles income, expense, and summary display.
 """
+from smartbudget.entity.income import Income
+from smartbudget.entity.expense import  Expense
 
 
-from smartbudget.entity.transaction import Income,Expense
 from smartbudget.analysis.summary import total_income, total_expenses, budget_balance
-from smartbudget.analysis.insights import income_details, expense_details
+from smartbudget.analysis.insights import income_details, expense_details,plot_expense_by_category
 from smartbudget.io import append_to_json
+
 
 
 incomes = []
@@ -70,3 +72,18 @@ def show_expense_details():
     for d in details:
         print(" -", d)
     print()
+
+
+def show_expense_plot():
+    print("\n=== Expense Visualization ===")
+    print("Generating chart...")
+    plot_expense_by_category()
+    print("\n✔ Chart displayed!\n")
+
+def show_expense_plot():
+    print("\n=== Expense Visualization ===")
+    try:
+        plot_expense_by_category()
+        print("\n✔ Chart displayed!\n")
+    except Exception as exc:
+        print(f"\n✘ Failed to generate plot: {exc}\n")

@@ -20,6 +20,7 @@ def print_menu():
     print("7. List Backup Files")
     print("8. Delete File")
     print("9. Records Reset")
+    print("10. Show Expense Chart")
     print("0. Exit")
     print("====================================")
 
@@ -48,6 +49,9 @@ def run():
             sys.delete_backup_file()
         elif choice == "9":
             sys.clear_data()
+        elif choice == "10":
+            rec.show_expense_plot()
+
         elif choice == "0":
             print("\nExiting SmartBudget. Goodbye!\n")
             break

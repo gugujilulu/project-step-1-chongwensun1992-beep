@@ -5,7 +5,8 @@ JSON input/output helpers for SmartBudget.
 import json
 import os
 from smartbudget.io.file_utils import FILES_DIR, ensure_files_dir
-from smartbudget.entity.transaction import Income, Expense
+from smartbudget.entity.income import Income
+from smartbudget.entity.expense import  Expense
 from smartbudget.entity.base_record import RecordBase
 
 DEFAULT_FILENAME = "records.json"

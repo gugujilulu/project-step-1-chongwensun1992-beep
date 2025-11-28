@@ -4,7 +4,8 @@ Handles saving, loading, listing, and deleting backup data files.
 """
 
 
-from smartbudget.entity.transaction import Income,Expense
+from smartbudget.entity.income import Income
+from smartbudget.entity.expense import  Expense
 from smartbudget.io import (
     save_to_json, load_from_json,
     file_exists, list_files, delete_file,clear_json

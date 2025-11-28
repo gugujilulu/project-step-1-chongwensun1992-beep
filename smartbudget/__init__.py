@@ -7,7 +7,8 @@ Subpackages:
 - io: helper functions to save and load data.
 """
 
-from .entity.transaction import Expense, Income
+from smartbudget.entity.income import Income
+from smartbudget.entity.expense import  Expense
 from .analysis.summary import total_income, total_expenses, budget_balance
 
 __all__ = [

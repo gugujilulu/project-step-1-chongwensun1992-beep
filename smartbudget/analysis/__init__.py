@@ -1,7 +1,3 @@
-"""
-Analysis subpackage: summary statistics and income/expense insights.
-"""
-
 from .summary import (
     total_income,
     total_expenses,
@@ -10,22 +6,24 @@ from .summary import (
 
 from .insights import (
     expense_details,
-    income_details
+    income_details,
+    plot_expense_by_category
 )
 
+
+
+
 __all__ = [
+    # summary
     "total_income",
     "total_expenses",
     "budget_balance",
 
-    # expense functions
+    # insights
     "expense_details",
-    "largest_expenses",
-
-    # income functions
     "income_details",
-    "largest_incomes",
 
-    # utility
-    "print_records",
+    # optional plotting functions (if present)
+    "plot_expense_by_category",
 ]
+
