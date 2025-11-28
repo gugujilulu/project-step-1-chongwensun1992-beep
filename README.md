@@ -1,14 +1,16 @@
 # 📦 SmartBudget — Python Household Budgeting Package
 
-SmartBudget is a modular Python package designed to record incomes and expenses, perform budget analysis, and save/load financial records from JSON files.  
-It demonstrates clean software architecture using **functional modules**, **class inheritance**, and **package organization** suitable for course projects or real-world use.
+SmartBudget is a modular Python package for recording incomes and expenses, performing financial analysis, generating visual insights, and saving/loading data using JSON.  
+It demonstrates clean software architecture, object-oriented programming, testing with unittest, and collaborative Git workflows.
 
 ---
 
-# 📁 Submission Instruction
-All project deliverables — including the project description file, the pre-presentation slides, the final presentation slides, and the demo video — are stored inside the docs/ directory.
+# 📁 Submission Notes (DATA 533 – Step 1 & Step 2)
+
+All deliverables such as project description, pre-presentation slides, final presentation slides, and demo video are stored in:
+
 ```
-project/docs
+docs/
 ```
 
 ---
@@ -35,16 +37,24 @@ project/
 │   │   ├── controller_records.py
 │   │   └── controller_system.py
 │   │
-│   ├── entity/
+├── entity/
 │   │   ├── __init__.py
 │   │   ├── base_record.py
 │   │   ├── constants.py
-│   │   └── transaction.py
+│   │   ├── expense.py
+│   │   └── income.py
 │   │
-│   ├── io/
+├── io/
 │   │   ├── __init__.py
 │   │   ├── json_io.py
 │   │   └── file_utils.py
+│
+├── tests/
+│   ├── test_base_record.py
+│   ├── test_income_expense.py
+│   ├── test_summary.py
+│   ├── test_insights.py
+│   └── test_suite.py
 │
 ├── main.py
 ├── FUNCTIONS.md
@@ -55,83 +65,83 @@ project/
 
 # ✨ Features Overview
 
-## ✅ 1. **Entity Models (entity/)**
+## 🧱 1. Entity Models (`entity/`)
 
 ### `RecordBase`
-Provides:
 
-- validation for name   
-- shared data fields  
-- `to_dict()` serialization  
-- common behavior across records  
+- validation for name  
+- validation for amount  
+- shared fields & methods  
+- `to_dict()` for JSON  
+- `show()` for UI display  
 
 ### `Income` / `Expense`
+
 Both inherit from `RecordBase`:
 
-- `Income(name, amount, source)`
-- `Expense(name, amount, category)`  
-  (stored as negative)
+- `Income(name, amount, source)`  
+- `Expense(name, amount, category)` (stored as negative)
 
-They implement:
+Override:
 
-- `describe()`
-- `to_dict()` (includes category/source)
+- `describe()`  
+- `to_dict()`  
 
 ---
 
-## 🎯 2. **Controllers (core/)**
-
-SmartBudget uses **feature-based modular separation**:
+# 🎯 2. Controllers (`core/`)
 
 ### `controller_records.py`
-Handles:
 
-- adding income  
-- adding expense  
-- displaying budget summary  
-- showing detailed records  
+- add income  
+- add expense  
+- show summary  
+- show income/expense details  
 
 ### `controller_system.py`
-Handles:
 
-- saving data to JSON  
-- loading JSON  
-- listing available files  
-- deleting files  
+- save JSON backup  
+- load backup  
+- list files  
+- delete file  
+- reset records  
 
 ### `controller_menu.py`
-Contains:
 
-- printed menu UI  
-- `run()` main loop  
-- routing user choices to controllers  
+- menu UI  
+- user routing  
+- main program loop  
 
 ---
 
-## 📊 3. Analysis Tools (analysis/)
+# 📊 3. Analysis Tools (`analysis/`)
 
 ### `summary.py`
-- `total_income()`
-- `total_expenses()`
-- `budget_balance()`
+
+- `total_income()`  
+- `total_expenses()`  
+- `budget_balance()`  
 
 ### `insights.py`
-- `_load_split()`
-- `income_details()`
-- `expense_details()`
+
+- `income_details()`  
+- `expense_details()`  
+- `plot_expense_by_category()`  
+- `_load_split()`  
 
 ---
 
-## 💾 4. JSON IO (io/)
+# 💾 4. JSON IO (`io/`)
 
 ### `json_io.py`
-- serialize Python objects to JSON  
-- deserialize JSON data back into Income/Expense objects  
-- `save_to_json()`
-- `load_from_json()`
-- `append_to_json()`
-- `clear_json()`
+
+- `save_to_json()`  
+- `append_to_json()`  
+- `load_from_json()`  
+- `clear_json()`  
+
 ### `file_utils.py`
+
 - `file_exists()`  
 - `list_files()`  
 - `delete_file()`  
@@ -140,13 +150,13 @@ Contains:
 
 # 🚀 Running SmartBudget
 
-Use:
+Run:
 
-```bash
+```
 python main.py
 ```
 
-You will see:
+Menu:
 
 ```
 1. Add Income
@@ -158,14 +168,13 @@ You will see:
 7. List Backup Files
 8. Delete File
 9. Records Reset
+10. Show Expense Chart
 0. Exit
 ```
 
 ---
 
-# 📂 Example JSON Output
-
-Records are saved in: `files/records.json`
+# 🗂 Example JSON Output
 
 ```json
 [
@@ -186,34 +195,86 @@ Records are saved in: `files/records.json`
 
 ---
 
-# 🧪 Testing
+# 🧪 Unit Testing (DATA 533 – Step 2)
 
-Suggested tests include:
+All Step 2 requirements satisfied.
 
-- object creation  
-- JSON save/load  
+## ✔ Test Coverage
+
+Tests cover:
+
+- entity classes  
+- JSON I/O  
 - summary calculations  
-- file utility functions  
-- command-line menu behavior  
+- insights and plotting logic  
+- controller functions  
+
+Each test class includes:
+
+- ≥ 2 test cases  
+- ≥ 4 assertions per case  
+- lifecycle methods:  
+  - `setUpClass`  
+  - `setUp`  
+  - `tearDown`  
+  - `tearDownClass`  
+
+## ✔ Test Suite
+
+```
+tests/test_suite.py
+```
+
+Runs all tests.
+
+Run all tests:
+
+```
+python -m unittest discover tests
+```
+
+Or:
+
+```
+python tests/test_suite.py
+```
 
 ---
 
-# 🎓 Academic Notes
+# 🤝 GitHub Collaboration (Step 2 Requirement)
 
-SmartBudget demonstrates:
+- GitHub repo created  
+- collaborator added  
+- both members cloned repo  
+- each used separate branches  
+- test code developed independently  
+- pull requests completed  
+- merged into `main`  
+- Git history shows equal contribution  
 
-- **Modular Python package architecture**  
-- **Object-oriented programming with inheritance**  
-- **JSON serialization & deserialization**  
-- **Separation of concerns: entity / controller / analysis / io**  
-- **Expandable and maintainable project structure**
+---
+
+# 🌟 Project Highlights
+
+- modular package design  
+- object-oriented entity models  
+- JSON persistence  
+- clean separation of logic layers  
+- analysis chart with matplotlib  
+- full unittest suite  
+- proper collaboration workflow  
+
 
 ---
 
 # 📘 Summary
 
-SmartBudget is a well-organized Python budgeting application suitable for academic assignments and practical use.  
-Its modular architecture makes it easy to extend, test, and maintain.
+SmartBudget is a complete, well-designed Python budgeting application that fulfills all requirements for DATA 533:
 
----
-
+✔ modular architecture  
+✔ OOP with inheritance  
+✔ JSON persistence  
+✔ analysis + plotting  
+✔ unittest suite  
+✔ GitHub workflow  
+✔ documentation + presentation ready  
