@@ -16,31 +16,6 @@ incomes = []
 expenses = []
 
 
-def add_income():
-    print("\n--- Add Income ---")
-    name = input("Enter income name: ")
-    amount = float(input("Enter amount: "))
-    source = input("Enter source: ")
-
-    inc = Income(name, amount, source)
-    incomes.append(inc)
-    append_to_json([inc])
-
-    print("\n✔ Income added:", inc.describe(), "\n")
-
-
-def add_expense():
-    print("\n--- Add Expense ---")
-    name = input("Enter expense name: ")
-    amount = float(input("Enter amount: "))
-    category = input("Enter category: ")
-
-    exp = Expense(name, amount, category)
-    expenses.append(exp)
-    append_to_json([exp])
-
-    print("\n✔ Expense added:", exp.describe(), "\n")
-
 
 def show_summary():
     print("\n=== Budget Summary ===")
@@ -80,10 +55,28 @@ def show_expense_plot():
     plot_expense_by_category()
     print("\n✔ Chart displayed!\n")
 
-def show_expense_plot():
-    print("\n=== Expense Visualization ===")
-    try:
-        plot_expense_by_category()
-        print("\n✔ Chart displayed!\n")
-    except Exception as exc:
-        print(f"\n✘ Failed to generate plot: {exc}\n")
+
+def add_income():
+    print("\n--- Add Income ---")
+    name = input("Enter income name: ")
+    amount = float(input("Enter amount: "))
+    source = input("Enter source: ")
+
+    inc = Income(name, amount, source)
+    incomes.append(inc)
+    append_to_json([inc])
+
+    print("\n✔ Income added:", inc.describe(), "\n")
+
+
+def add_expense():
+    print("\n--- Add Expense ---")
+    name = input("Enter expense name: ")
+    amount = float(input("Enter amount: "))
+    category = input("Enter category: ")
+
+    exp = Expense(name, amount, category)
+    expenses.append(exp)
+    append_to_json([exp])
+
+    print("\n✔ Expense added:", exp.describe(), "\n")

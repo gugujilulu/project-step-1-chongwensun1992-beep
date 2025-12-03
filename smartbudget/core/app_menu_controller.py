@@ -3,8 +3,8 @@ User interface: menu + main loop for SmartBudget.
 This module only contains two methods: print_menu() and run().
 """
 
-from smartbudget.core import controller_records as rec
-from smartbudget.core import controller_system as sys
+from smartbudget.core import budget_data_display_controller as rec
+from smartbudget.core import budget_file_io_data_controller as sys
 
 
 def print_menu():

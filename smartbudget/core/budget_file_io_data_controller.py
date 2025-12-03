@@ -11,6 +11,7 @@ from smartbudget.io import (
     file_exists, list_files, delete_file,clear_json
 )
 
+
 def clear_data():
     confirm = input("⚠ Are you sure you want to CLEAR ALL DATA? (y/n): ").lower()
     if confirm == "y":

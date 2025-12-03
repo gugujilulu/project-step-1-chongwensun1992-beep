@@ -1,4 +1,4 @@
-from smartbudget.core.controller_menu import run
+from smartbudget.core.app_menu_controller import run
 
 def main():
     run()
