@@ -57,7 +57,7 @@ project/
 │   └── test_suite.py
 │
 ├── main.py
-├── FUNCTIONS.md
+├── Function_Guide_Reference.md
 └── README.md
 ```
 
@@ -91,14 +91,15 @@ Override:
 
 # 🎯 2. Controllers (`core/`)
 
-### `controller_records.py`
+### `budget_record_controller.py`
 
+- show summary  
+- show income/expense details 
 - add income  
 - add expense  
-- show summary  
-- show income/expense details  
+- show_expense_plot 
 
-### `controller_system.py`
+### `file_io_data_controller.py`
 
 - save JSON backup  
 - load backup  
@@ -106,7 +107,7 @@ Override:
 - delete file  
 - reset records  
 
-### `controller_menu.py`
+### `app_menu_controller.py`
 
 - menu UI  
 - user routing  
